@@ -6,7 +6,7 @@
 
 ## 🚀 About
 
-**Zerodha-MCP** is a high-performance Multi-Client Platform (MCP) server designed to manage real-time trading operations for Zerodha users.  
+**Zerodha-MCP** is a high-performance Model Context Protocol (MCP) server designed to manage real-time trading operations for Zerodha users.  
 It focuses on **low-latency**, **high availability**, and **secure multi-client** trading support.
 
 ---
