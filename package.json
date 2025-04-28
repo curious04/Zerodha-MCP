@@ -10,6 +10,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.2",
     "kiteconnect": "^5.0.1"
   }
 }
