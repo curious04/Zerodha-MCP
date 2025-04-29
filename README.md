@@ -11,15 +11,6 @@ It focuses on **low-latency**, **high availability**, and **secure multi-client*
 
 ---
 
-## 🛠 Features
-
-- ⚡ Lightning-fast trade execution
-- 📈 Real-time market data handling
-- 🔒 Secure and scalable multi-client management
-- 🔁 Auto-recovery and fault tolerance
-
----
-
 ## 📦 Setup
 
 ```bash
