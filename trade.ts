@@ -22,11 +22,12 @@ console.error(err);
     }
 }
 
-export async function getHoldings() {
-    const holdings = await kc.getHoldings();
+export async function getPositions() {
+    const holdings = await kc.getPositions();
+    console.log(holdings);
     let allHoldings = "";
-    holdings.map(holding => {
+    holdings.net.forEach(holding => {
     allHoldings += `stock: ${holding.tradingsymbol}, qty: ${holding.quantity}, currentPrice: ${holding.last_price}, avgPrice: ${holding.average_price}`;
-    })
+    });
     return allHoldings;
 }

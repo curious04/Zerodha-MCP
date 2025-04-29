@@ -1,4 +1,4 @@
-import { getHoldings, placeOrder } from "./trade";
+import { getPositions, placeOrder } from "./trade";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { canHaveDecorators } from "typescript";
@@ -39,11 +39,10 @@ server.tool("Sell-a-stock", "Sells the stock on zerodha exchange",
 );
 
 server.tool("show-portfolio", "Shows my complete portfolio in zerodha",
-    { },
     async () => {
     return {
-    content: [{ type: "text", text: await getHoldings () }]
-    }
+        content: [{ type: "text", text: await getPositions () }]
+        }
     }
 );
 
