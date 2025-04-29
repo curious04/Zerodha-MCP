@@ -1,4 +1,4 @@
-import { getPositions, placeOrder } from "./trade";
+import { getPositions, getProfitLoss, placeOrder } from "./trade";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { canHaveDecorators } from "typescript";
@@ -42,6 +42,14 @@ server.tool("show-portfolio", "Shows my complete portfolio in zerodha",
     async () => {
     return {
         content: [{ type: "text", text: await getPositions () }]
+        }
+    }
+);
+
+server.tool("show-profit-loss", "Shows my profit and loss in zerodha",
+    async () => {
+    return {
+        content: [{ type: "text", text: String(await getProfitLoss()) }]
         }
     }
 );

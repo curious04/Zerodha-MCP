@@ -31,3 +31,13 @@ export async function getPositions() {
     });
     return allHoldings;
 }
+
+export async function getProfitLoss() {
+    const positions = await kc.getPositions();
+    let totalProfit = 0;
+    positions.net.forEach(position => {
+        const profitLoss = (position.last_price - position.average_price) * position.quantity;
+        totalProfit += profitLoss;
+    });
+    return totalProfit;
+}
