@@ -3,10 +3,11 @@ const apikey = "your_api_key"; // Replace with your actual API key
 let accessToken = "your_access_token"; // Replace with your actual access token
 
 const kc = new KiteConnect({ api_key: apikey });
+kc.setAccessToken (accessToken);
+
 
 export async function placeOrder (tradingsymbol: string, quantity: number, type: "BUY" | "SELL") {
 try {
-    kc.setAccessToken (accessToken);
         await kc.placeOrder("regular", {
             exchange: "NSE",
             tradingsymbol,
