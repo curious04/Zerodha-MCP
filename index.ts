@@ -1,4 +1,4 @@
-import { placeOrder } from "./trade";
+import { getHoldings, placeOrder } from "./trade";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { canHaveDecorators } from "typescript";
@@ -18,7 +18,7 @@ server.tool("add-two-numbers",
     })
 );
 
-server.tool("Buy-a-stock",
+server.tool("Buy-a-stock", "Buys the stock on zerodha exchange",
     { stock: z.string(), qty: z.number() },
         async ({stock, qty }) => {
         placeOrder(stock, qty, "BUY");
@@ -28,7 +28,7 @@ server.tool("Buy-a-stock",
 }
 );
 
-server.tool("Sell-a-stock",
+server.tool("Sell-a-stock", "Sells the stock on zerodha exchange",
     { stock: z.string(), qty: z.number() },
         async ({stock, qty }) => {
         placeOrder(stock, qty, "SELL");
@@ -36,6 +36,15 @@ server.tool("Sell-a-stock",
             content: [{ type: "text", text: "Stock has been bought" }]
     }
 }
+);
+
+server.tool("show-portfolio", "Shows my complete portfolio in zerodha",
+    { },
+    async () => {
+    return {
+    content: [{ type: "text", text: await getHoldings () }]
+    }
+    }
 );
 
 const transport = new StdioServerTransport();
